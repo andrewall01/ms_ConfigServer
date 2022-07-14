@@ -1,0 +1,32 @@
+server:
+  port: 8081
+  
+spring:
+  security:
+    user:
+      name: security
+      password: security
+      
+  #application:
+   # name: configserver    
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/andrewall01/Config-Repository.git
+          search-paths: /
+          default-label: "master"
+          
+          # If you are using ssh key to connect private git repository use following configs
+          #
+          # uri: git@{gitserver}.com:/repourl
+          # ignoreLocalSshSettings: true
+          # hostKey: someHostKey
+          # hostKeyAlgorithm: ssh-rsa
+          # privateKey: 
+          #           -----BEGIN RSA PRIVATE KEY-----
+          #           xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+          #           your SSH Key in ~/.ssh/id_rsa
+          #           xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+          #  
